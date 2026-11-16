@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Wazifly</title><meta name="description" content="Candidate support and employer partnerships at Wazifly.">
+<link rel="canonical" href="https://wazifly.com/contact"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#09090B">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+<div id="site-header"></div>
+<main><section><div class="wrap" style="max-width:720px"><h1 style="font-size:2.4rem">Contact Wazifly</h1>
+<p class="sub">WhatsApp: <a class="mono" href="https://wa.me/923014526307">+92 301 4526307</a> · Email: <span class="mono">support@wazifly.com</span></p>
+<div class="tabs" style="margin-top:28px"><button class="on" data-t="cand">Candidate support</button><button data-t="emp">Employer partnership</button></div>
+<!-- Replace the WhatsApp number above and connect these forms using the setup guide (Formspree / Web3Forms). -->
+<div class="panel on" id="cand"><form class="contact"><label for="c1">Reference ID</label><input id="c1" class="mono" placeholder="WZF-2026-1234" required>
+<label for="c2">Full name</label><input id="c2" required><label for="c3">Email</label><input id="c3" type="email" required>
+<label for="c4">How can we help?</label><textarea id="c4" rows="5" required></textarea><p><button class="btn" type="submit">Send to support</button></p><p class="ok mute" role="status"></p></form></div>
+<div class="panel" id="emp"><form class="contact"><label for="e1">Company name</label><input id="e1" required>
+<label for="e2">Contact person</label><input id="e2" required><label for="e3">Work email</label><input id="e3" type="email" required>
+<label for="e4">Roles you are hiring for</label><textarea id="e4" rows="5" required></textarea><p><button class="btn" type="submit">Request partnership</button></p><p class="ok mute" role="status"></p></form></div>
+</div></section></main>
+<div id="site-footer"></div><script src="app.js"></script></body></html>

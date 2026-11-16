@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apply — Wazifly</title><meta name="description" content="Enroll in a Wazifly plan and pay with JazzCash or Meezan Bank transfer.">
+<link rel="canonical" href="https://wazifly.com/apply"><link rel="manifest" href="manifest.json"><meta name="theme-color" content="#09090B">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+<div id="site-header"></div>
+<main><section><div class="wrap" style="max-width:720px">
+<div id="formArea"><h1 style="font-size:2.4rem">Apply for placement</h1><p class="sub mono" id="stepLbl">Step 1 of 2</p>
+<!-- To receive real submissions, see the setup guide: add action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data" and keep the JS validation. -->
+<form id="applyForm" novalidate>
+<div class="step on">
+<label>Choose your plan</label>
+<label class="opt"><input type="radio" name="tier" value="1000"><span><b>Tier 01 — Starter Switch</b> <span class="mono">PKR 1,000</span><br><span class="mute">30-day guarantee</span></span></label>
+<label class="opt"><input type="radio" name="tier" value="3000" checked><span><b>Tier 02 — Pro Accelerator</b> <span class="mono">PKR 3,000</span><br><span class="mute">20-day guarantee · most selected</span></span></label>
+<label class="opt"><input type="radio" name="tier" value="5000"><span><b>Tier 03 — Priority Executive</b> <span class="mono">PKR 5,000</span><br><span class="mute">15-day guarantee · fastest placement</span></span></label>
+<label for="name">Full name</label><input id="name" name="name" autocomplete="name"><div class="err" id="e_name"></div>
+<label for="wa">WhatsApp number</label><input id="wa" name="wa" placeholder="0300 1234567" inputmode="tel"><div class="err" id="e_wa"></div>
+<label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><div class="err" id="e_email"></div>
+<label for="role">Current role</label><input id="role" name="role"><div class="err" id="e_role"></div>
+<label for="target">Target post</label><input id="target" name="target"><div class="err" id="e_target"></div>
+<label for="city">Target city</label><input id="city" name="city" placeholder="Lahore, Karachi, Islamabad…"><div class="err" id="e_city"></div>
+<label for="exp">Years of experience</label><input id="exp" name="exp" type="number" min="0" max="50"><div class="err" id="e_exp"></div>
+<label for="cv">Upload CV (.pdf or .docx)</label><input id="cv" name="cv" type="file" accept=".pdf,.docx"><div class="err" id="e_cv"></div>
+<p><button class="btn" type="button" id="next">Continue to payment</button></p></div>
+<div class="step">
+<h2 style="font-size:1.5rem">Payment</h2><p class="sub">Send the plan amount, then enter the transaction ID and upload your receipt.</p>
+<label class="opt"><input type="radio" name="method" value="JazzCash"><b>JazzCash</b></label>
+<div class="pay" data-m="JazzCash">Account title: <b>Wazifly</b><br>JazzCash number: <span class="mono">0327-1479875</span></div>
+<label class="opt"><input type="radio" name="method" value="Meezan Bank"><b>Meezan Bank Transfer</b></label>
+<div class="pay" data-m="Meezan Bank">Account title: <b>Wazifly</b><br>Bank: <b>Meezan Bank</b><br>Account number: <span class="mono">61010109285421</span></div>
+<div class="err" id="e_method"></div>
+<label for="tid">Transaction ID (TID)</label><input id="tid" name="tid" class="mono"><div class="err" id="e_tid"></div>
+<label for="rcpt">Payment receipt (.jpg, .png or .pdf)</label><input id="rcpt" name="rcpt" type="file" accept=".jpg,.jpeg,.png,.pdf"><div class="err" id="e_rcpt"></div>
+<p><button class="btn o" type="button" id="back">Back</button> <button class="btn" type="submit">Submit and get Reference ID</button></p></div>
+</form></div><div id="certArea"></div></div></section></main>
+<div id="site-footer"></div><script src="app.js"></script></body></html>
