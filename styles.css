@@ -72,3 +72,26 @@ footer .bar{border-top:1px solid var(--dl);margin-top:40px;padding-top:20px;colo
 .center{text-align:center;padding:140px 20px}
 @media print{body *{visibility:hidden}#cert,#cert *{visibility:visible}#cert{position:absolute;left:0;top:0;width:100%;margin:0}.noprint{display:none!important}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}}
+
+/* ===== Accent colours: Olive Green (trust / guarantee) + Burgundy (deadlines) ===== */
+:root{--olive:#556B2F;--olive-d:#3F5222;--olive-l:#A3B66B;--olive-t:#F1F4E8;--burg:#800020;--burg-t:#FBF0F2}
+.dl{color:var(--burg)!important}.ok{color:var(--olive)!important}
+.btn:hover{background:var(--olive-d);border-color:var(--olive-d)}
+.btn.o:hover{background:var(--olive-t);border-color:var(--olive)}
+.dark .btn:hover{background:var(--olive-l);border-color:var(--olive-l)}
+ul.chk li:before{color:var(--olive)}.dark ul.chk li:before{color:var(--olive-l)}
+.card.hl{border-color:var(--olive)}
+.badge.olive{background:var(--olive)}.badge.burg{background:var(--burg)}
+.dlcard{border-top:3px solid var(--burg);background:var(--burg-t)}.dlcard .price{color:var(--burg)}
+.metrics{border-top-color:var(--olive)}.metrics b{color:var(--olive-d)}
+#process .mono{color:var(--olive);font-weight:700}
+th{background:var(--olive-t)}
+section.dark{border-top:3px solid var(--olive)}
+.tl li.done:before{background:var(--olive);border-color:var(--olive)}
+.pill{background:var(--olive-t);border-color:var(--olive);color:var(--olive-d)}
+.cert{border-color:var(--olive-d);border-top-width:6px}
+.opt:has(input:checked){border-color:var(--olive);background:var(--olive-t)}
+.err{color:var(--burg)}
+.tabs button.on{background:var(--olive-d);border-color:var(--olive-d)}
+footer{border-top:3px solid var(--olive)}
+.links a:hover{color:var(--olive-d)}
