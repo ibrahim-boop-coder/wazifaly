@@ -17,7 +17,7 @@ if(ft)ft.outerHTML=`<footer><div class="wrap"><div class="grid g3"><div><div cla
 
 // SLA calculator
 const cs=$('#calcTier');
-if(cs){const o=$('#calcOut');const run=()=>{const t=TIERS[cs.value],d=new Date();d.setDate(d.getDate()+t.d);o.innerHTML=`<span class="mute">Interview deadline</span><div class="price">${fmt(d)}</div><span class="mute mono">${t.d}-day guarantee · starts today</span>`;$('#calcCta').href='apply.html?tier='+cs.value};cs.onchange=run;run();}
+if(cs){const o=$('#calcOut');const run=()=>{const t=TIERS[cs.value],d=new Date();d.setDate(d.getDate()+t.d);o.innerHTML=`<span class="mute">Interview deadline</span><div class="price dl">${fmt(d)}</div><span class="mute mono">${t.d}-day guarantee · starts today</span>`;$('#calcCta').href='apply.html?tier='+cs.value};cs.onchange=run;run();}
 
 // Apply flow
 const f=$('#applyForm');
@@ -49,7 +49,7 @@ if(f){
   $('#formArea').style.display='none';
   $('#certArea').innerHTML=`<div class="noprint"><h2>Last step: send your CV on WhatsApp</h2><p class="sub">Tap the button, then attach your <b>CV</b> and <b>payment receipt</b> in the chat and send. We verify payment and start within 24 hours. Save your Reference ID to track progress.</p><p><a class="btn" target="_blank" rel="noopener" href="${wa}">Send CV &amp; receipt on WhatsApp</a></p><p><button class="btn" onclick="print()">Print / Save as PDF</button> <a class="btn o" href="track.html?id=${id}">Track status</a></p></div>
   <div class="cert" id="cert"><div class="logo">${LOGO}Wazifly</div><h2 style="margin-top:20px">Guarantee Certificate &amp; Receipt</h2><p class="mono" style="font-size:1.3rem;margin-top:14px">${id}</p>
-  <dl><dt>Candidate</dt><dd>${esc(r.name)}</dd><dt>Plan</dt><dd>Tier ${t.t} — ${t.n}</dd><dt>Amount paid</dt><dd class="mono">${pkr(r.tier)}</dd><dt>Payment</dt><dd>${esc(r.method)} · TID ${esc(r.tid)}</dd><dt>Start date</dt><dd>${fmt(new Date(r.start))}</dd><dt>Guarantee window</dt><dd class="mono">${t.d} days</dd><dt>Interview deadline</dt><dd>${fmt(dl)}</dd><dt>Target</dt><dd>${esc(r.target)}, ${esc(r.city)}</dd></dl>
+  <dl><dt>Candidate</dt><dd>${esc(r.name)}</dd><dt>Plan</dt><dd>Tier ${t.t} — ${t.n}</dd><dt>Amount paid</dt><dd class="mono">${pkr(r.tier)}</dd><dt>Payment</dt><dd>${esc(r.method)} · TID ${esc(r.tid)}</dd><dt>Start date</dt><dd>${fmt(new Date(r.start))}</dd><dt>Guarantee window</dt><dd class="mono dl">${t.d} days</dd><dt>Interview deadline</dt><dd class="dl"><b>${fmt(dl)}</b></dd><dt>Target</dt><dd>${esc(r.target)}, ${esc(r.city)}</dd></dl>
   <p class="mute" style="margin-top:24px">If no interview is secured by the deadline, Wazifly refunds the amount paid, less applicable taxes and surcharges, under the Refund Policy (wazifly.com/refund-policy), subject to fair-play conditions. Valid once payment is verified.</p></div>`;
  };
 }
@@ -67,7 +67,7 @@ if(tf){const out=$('#trackOut');
   if(r.tier===5000){ev.push([6,'Direct agency recommendation sent to partners'],[8,'1-on-1 interview preparation session'])}
   [7,14,21,28].filter(n=>n<t.d).forEach(n=>ev.push([n,`Weekly status report (Day ${n})`]));ev.push([t.d,'Guarantee window closes']);
   ev.sort((a,b)=>a[0]-b[0]);
-  out.innerHTML=`<div class="card"><span class="pill">${r.id}</span><h2 style="margin-top:14px">Tier ${t.t} — ${t.n}</h2><div class="metrics"><div><b>${left}</b><span>days remaining</span></div><div><b>${fmt(dl)}</b><span>deadline</span></div><div><b>${left>0?'Protected':'Window closed'}</b><span>refund protection</span></div></div>
+  out.innerHTML=`<div class="card"><span class="pill">${r.id}</span><h2 style="margin-top:14px">Tier ${t.t} — ${t.n}</h2><div class="metrics"><div><b class="dl">${left}</b><span>days remaining</span></div><div><b class="dl">${fmt(dl)}</b><span>deadline</span></div><div><b class="${left>0?'ok':'dl'}">${left>0?'Protected':'Window closed'}</b><span>refund protection</span></div></div>
   <p class="sub">${left>0?`Your interview guarantee is active until ${fmt(dl)}.`:'The guarantee window has ended. If you did not receive an interview, you may request a refund (less taxes and surcharges) within 7 days.'}</p><ul class="tl">${ev.map(([n,x])=>`<li class="${n<=el?'done':''}"><b class="mono">Day ${n}</b> — ${x}</li>`).join('')}</ul></div>`};
  tf.onsubmit=e=>{e.preventDefault();look($('#refId').value)};
  const p=new URLSearchParams(location.search).get('id');if(p){$('#refId').value=p;look(p)}
