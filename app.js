@@ -13,7 +13,7 @@ const hd=$('#site-header');
 if(hd){hd.outerHTML=`<header class="nav"><div class="wrap"><a class="logo" href="index.html" aria-label="Wazifly home">${LOGO}Wazifly</a><button class="burger" aria-label="Menu" aria-expanded="false">☰</button><nav class="links" id="links"><a href="index.html">Home</a><a href="index.html#plans">Plans &amp; SLA</a><a href="index.html#guarantee">Guarantee Protocol</a><a href="track.html">Track Status</a><a class="btn" href="apply.html">Apply Now</a></nav></div></header>`;
  const b=$('.burger'),l=$('#links');b.onclick=()=>{b.setAttribute('aria-expanded',l.classList.toggle('open'))};$$('#links a').forEach(a=>a.onclick=()=>l.classList.remove('open'));}
 const ft=$('#site-footer');
-if(ft)ft.outerHTML=`<footer><div class="wrap"><div class="grid g3"><div><div class="logo">${LOGO}Wazifly</div><p style="color:#A1A1AA;max-width:300px">Career acceleration and direct job placement for professionals in Pakistan, backed by a money-back guarantee.</p></div><div><b>Company</b><a href="apply.html">Apply Now</a><a href="track.html">Track Status</a><a href="contact.html">Contact</a></div><div><b>Legal</b><a href="terms.html">Terms &amp; Conditions</a><a href="refund-policy.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a></div></div><div class="bar">© ${new Date().getFullYear()} Wazifly (wazifly.com). All rights reserved.</div></div></footer>`;
+if(ft)ft.outerHTML=`<footer><div class="wrap"><div class="grid g3"><div><div class="logo">${LOGO}Wazifly</div><p style="color:#A1A1AA;max-width:300px">Career acceleration and direct job placement for professionals in Pakistan, backed by a money-back guarantee.</p></div><div><b>Company</b><a href="apply.html">Apply Now</a><a href="track.html">Track Status</a><a href="contact.html">Contact</a><a href="mailto:info@wazifly.com">info@wazifly.com</a></div><div><b>Legal</b><a href="terms.html">Terms &amp; Conditions</a><a href="refund-policy.html">Refund Policy</a><a href="privacy.html">Privacy Policy</a><a href="sitemap.xml">Sitemap</a></div></div><div class="bar">© ${new Date().getFullYear()} Wazifly (wazifly.com). All rights reserved.</div></div></footer>`;
 
 // SLA calculator
 const cs=$('#calcTier');
@@ -24,7 +24,7 @@ const f=$('#applyForm');
 if(f){
  const q=new URLSearchParams(location.search).get('tier');
  if(TIERS[q])$(`input[name=tier][value="${q}"]`).checked=true;
- const steps=$$('.step');let cur=0;const show=i=>{cur=i;steps.forEach((s,j)=>s.classList.toggle('on',j===i));$('#stepLbl').textContent=`Step ${i+1} of 2`;scrollTo({top:0})};
+ const steps=$$('.step');let cur=0;const show=i=>{cur=i;steps.forEach((s,j)=>s.classList.toggle('on',j===i));$('#stepLbl').textContent=`Step ${i+1} of 2`;$('.prog i').style.width=(i+1)*50+'%';scrollTo({top:0})};
  const err=(id,m)=>{$('#e_'+id).textContent=m;return !m};
  const ext=(el,list)=>{const fl=el.files[0];return fl&&list.includes(fl.name.split('.').pop().toLowerCase())};
  const v1=()=>{let ok=true;const g=n=>f.elements[n].value.trim();
@@ -45,9 +45,16 @@ if(f){
   const g=n=>f.elements[n].value.trim();
   all[id]={id,tier:+f.elements.tier.value,name:g('name'),wa:g('wa'),email:g('email'),role:g('role'),target:g('target'),city:g('city'),exp:g('exp'),method:f.elements.method.value,tid:g('tid'),cv:'via WhatsApp',start:new Date().toISOString()};
   store.set(all);const r=all[id],t=TIERS[r.tier],dl=new Date(r.start);dl.setDate(dl.getDate()+t.d);
-  const wa='https://wa.me/923014526307?text='+encodeURIComponent(`Assalam o Alaikum Wazifly.\nReference ID: ${id}\nName: ${r.name}\nPlan: Tier ${t.t} - ${t.n} (${pkr(r.tier)})\nTarget: ${r.target}, ${r.city}\nPayment: ${r.method}, TID ${r.tid}\nI am attaching my CV and payment receipt in this chat.`);
+  const wa='mailto:info@wazifly.com?subject='+encodeURIComponent('Wazifly '+id+' - CV & payment proof')+'&body='+encodeURIComponent(`Assalam o Alaikum Wazifly.
+Reference ID: ${id}
+Name: ${r.name}
+Plan: Tier ${t.t} - ${t.n} (${pkr(r.tier)})
+Target: ${r.target}, ${r.city}
+Payment: ${r.method}, TID ${r.tid}
+
+Attached: 1) my CV  2) my payment screenshot`);
   $('#formArea').style.display='none';
-  $('#certArea').innerHTML=`<div class="noprint"><h2>Last step: send your CV on WhatsApp</h2><p class="sub">Tap the button, then attach your <b>CV</b> and <b>payment receipt</b> in the chat and send. We verify payment and start within 24 hours. Save your Reference ID to track progress.</p><p><a class="btn" target="_blank" rel="noopener" href="${wa}">Send CV &amp; receipt on WhatsApp</a></p><p><button class="btn" onclick="print()">Print / Save as PDF</button> <a class="btn o" href="track.html?id=${id}">Track status</a></p></div>
+  $('#certArea').innerHTML=`<div class="noprint"><h2>Last step: email your CV and payment proof</h2><p class="sub">Tap the button, then attach your <b>CV</b> and your <b>payment screenshot</b> and send. If the button does not open your email app, send them to <b>info@wazifly.com</b> with <span class="mono">${id}</span> in the subject. We verify payment and start within 24 hours.</p><p><a class="btn" href="${wa}">Email CV &amp; payment proof</a></p><p><button class="btn" onclick="print()">Print / Save as PDF</button> <a class="btn o" href="track.html?id=${id}">Track status</a></p></div>
   <div class="cert" id="cert"><div class="logo">${LOGO}Wazifly</div><h2 style="margin-top:20px">Guarantee Certificate &amp; Receipt</h2><p class="mono" style="font-size:1.3rem;margin-top:14px">${id}</p>
   <dl><dt>Candidate</dt><dd>${esc(r.name)}</dd><dt>Plan</dt><dd>Tier ${t.t} — ${t.n}</dd><dt>Amount paid</dt><dd class="mono">${pkr(r.tier)}</dd><dt>Payment</dt><dd>${esc(r.method)} · TID ${esc(r.tid)}</dd><dt>Start date</dt><dd>${fmt(new Date(r.start))}</dd><dt>Guarantee window</dt><dd class="mono dl">${t.d} days</dd><dt>Interview deadline</dt><dd class="dl"><b>${fmt(dl)}</b></dd><dt>Target</dt><dd>${esc(r.target)}, ${esc(r.city)}</dd></dl>
   <p class="mute" style="margin-top:24px">If no interview is secured by the deadline, Wazifly refunds the amount paid, less applicable taxes and surcharges, under the Refund Policy (wazifly.com/refund-policy), subject to fair-play conditions. Valid once payment is verified.</p></div>`;
@@ -76,4 +83,8 @@ if(tf){const out=$('#trackOut');
 // Contact tabs + forms
 $$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.panel').forEach(p=>p.classList.toggle('on',p.id===b.dataset.t))});
 $$('form.contact').forEach(fm=>fm.onsubmit=e=>{e.preventDefault();if(!fm.checkValidity())return fm.reportValidity();fm.querySelector('.ok').textContent='Message received. We reply within one business day.';fm.reset()});
+
+// Gen-Z touches: reveal on scroll + sticky mobile CTA
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('.card,section h2,.metrics,details').forEach(el=>{el.classList.add('rv');io.observe(el)})}
+if(!f){const c=document.createElement('a');c.className='btn sticky-cta';c.href='apply.html';c.textContent='Start my placement';document.body.appendChild(c)}
 })();
