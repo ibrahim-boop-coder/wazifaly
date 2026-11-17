@@ -120,3 +120,20 @@ input,select,textarea{border-radius:12px;padding:13px 14px;font-size:16px}
 .sticky-cta{display:none}
 @media(max-width:860px){.sticky-cta{display:block;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));text-align:center;z-index:60;box-shadow:0 10px 30px -8px rgba(9,9,11,.5)}body{padding-bottom:84px}section{padding:56px 0}}
 @media print{.sticky-cta{display:none!important}}
+
+/* ===== Final: pure monochrome (olive & burgundy removed) + responsive polish ===== */
+:root{--olive:#09090B;--olive-d:#09090B;--olive-l:#E4E4E7;--olive-t:#F8FAFC;--burg:#09090B;--burg-t:#F8FAFC}
+.btn:hover{background:#1E293B;border-color:#1E293B}
+.btn.o:hover{background:#F8FAFC;border-color:#09090B}
+.dark .btn:hover{background:#E4E4E7;border-color:#E4E4E7}
+.dl{font-weight:700}
+.err{color:#B91C1C}
+.chip:before{animation:pulse2 1.8s infinite}
+@keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(9,9,11,.45)}100%{box-shadow:0 0 0 10px rgba(9,9,11,0)}}
+img,svg{max-width:100%}
+@media(min-width:1200px){.wrap{max-width:1200px}}
+@media(max-width:560px){
+ .wrap{padding:0 16px}.cert{padding:22px}.cert dl{grid-template-columns:1fr;gap:2px 0}.cert dd{margin-bottom:10px}
+ .metrics{gap:22px}.hero .btn{display:block;width:100%;text-align:center;margin-bottom:10px}
+ .card{padding:22px}.tabs{flex-direction:column}.price{font-size:2rem}
+}
