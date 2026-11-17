@@ -95,3 +95,28 @@ section.dark{border-top:3px solid var(--olive)}
 .tabs button.on{background:var(--olive-d);border-color:var(--olive-d)}
 footer{border-top:3px solid var(--olive)}
 .links a:hover{color:var(--olive-d)}
+
+/* ===== Gen-Z refresh: same palette, bolder type, softer shapes, motion ===== */
+:root{--r:12px}
+body{font-size:17px}
+h1{font-weight:800;letter-spacing:-.045em;font-size:clamp(2.7rem,8vw,5.2rem);line-height:1.02}
+h2{font-weight:800;letter-spacing:-.04em}
+.btn{border-radius:999px;padding:13px 26px;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}
+.btn:not(.o):after{content:"  →"}.nav .btn{padding:9px 18px}
+.card{border-radius:22px}
+.card:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px -18px rgba(9,9,11,.28)}
+.cert:hover{transform:none!important;box-shadow:none}
+input,select,textarea{border-radius:12px;padding:13px 14px;font-size:16px}
+.hero-sec{background-image:radial-gradient(#D7DEE8 1px,transparent 1px);background-size:22px 22px}
+.chip{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--olive);background:var(--olive-t);color:var(--olive-d);border-radius:99px;padding:5px 14px;font:600 .78rem var(--mono);margin-bottom:18px}
+.chip:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--olive);animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(85,107,47,.5)}100%{box-shadow:0 0 0 10px rgba(85,107,47,0)}}
+#process .mono{font-size:3rem;line-height:1;display:block;margin-bottom:14px;letter-spacing:-.05em}
+.price{font-size:2.4rem}.badge{border-radius:99px;padding:4px 12px}.metrics b{font-size:1.45rem}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none;transition:opacity .6s,transform .25s,box-shadow .25s}
+.prog{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin:10px 0 6px}
+.prog i{display:block;height:100%;width:50%;background:var(--olive);transition:width .4s}
+.sticky-cta{display:none}
+@media(max-width:860px){.sticky-cta{display:block;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));text-align:center;z-index:60;box-shadow:0 10px 30px -8px rgba(9,9,11,.5)}body{padding-bottom:84px}section{padding:56px 0}}
+@media print{.sticky-cta{display:none!important}}
