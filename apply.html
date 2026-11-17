@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="styles.css"></head><body>
 <div id="site-header"></div>
 <main><section><div class="wrap" style="max-width:720px">
-<div id="formArea"><h1 style="font-size:2.4rem">Apply for placement</h1><p class="sub mono" id="stepLbl">Step 1 of 2</p>
+<div id="formArea"><h1 style="font-size:2.4rem">Apply for placement</h1><p class="sub mono" id="stepLbl">Step 1 of 2</p><div class="prog"><i></i></div>
 <!-- To receive real submissions, see the setup guide: add action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data" and keep the JS validation. -->
 <form id="applyForm" novalidate>
 <div class="step on">
@@ -21,7 +21,7 @@
 <label for="target">Target post</label><input id="target" name="target"><div class="err" id="e_target"></div>
 <label for="city">Target city</label><input id="city" name="city" placeholder="Lahore, Karachi, Islamabad…"><div class="err" id="e_city"></div>
 <label for="exp">Years of experience</label><input id="exp" name="exp" type="number" min="0" max="50"><div class="err" id="e_exp"></div>
-<p class="mute" style="margin-top:18px">You will send your CV on WhatsApp right after the payment step. No upload needed here.</p><p class="err" id="m1" role="alert"></p>
+<p class="mute" style="margin-top:18px">You will email your CV to info@wazifly.com right after the payment step. No upload needed here.</p><p class="err" id="m1" role="alert"></p>
 <p><button class="btn" type="button" id="next">Continue to payment</button></p></div>
 <div class="step">
 <h2 style="font-size:1.5rem">Payment</h2><p class="sub">Send the plan amount, then enter the transaction ID.</p>
@@ -31,7 +31,7 @@
 <div class="pay" data-m="Meezan Bank">Account title: <b>Salman Ali</b><br>Bank: <b>Meezan Bank</b><br>Account number: <span class="mono">61010109285421</span></div>
 <div class="err" id="e_method"></div>
 <label for="tid">Transaction ID (TID)</label><input id="tid" name="tid" class="mono"><div class="err" id="e_tid"></div>
-<p class="mute" style="margin-top:18px">After you submit, you will send your payment receipt screenshot on WhatsApp.</p><p class="err" id="m2" role="alert"></p>
+<p class="mute" style="margin-top:18px">After you submit, you will email your payment screenshot and TID to info@wazifly.com.</p><p class="err" id="m2" role="alert"></p>
 <p><button class="btn o" type="button" id="back">Back</button> <button class="btn" type="submit">Submit and get Reference ID</button></p></div>
 </form></div><div id="certArea"></div></div></section></main>
 <div id="site-footer"></div><script src="app.js"></script></body></html>
