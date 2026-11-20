@@ -84,7 +84,12 @@ if(tf){const out=$('#trackOut');
 $$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('.panel').forEach(p=>p.classList.toggle('on',p.id===b.dataset.t))});
 $$('form.contact').forEach(fm=>fm.onsubmit=e=>{e.preventDefault();if(!fm.checkValidity())return fm.reportValidity();fm.querySelector('.ok').textContent='Message received. We reply within one business day.';fm.reset()});
 
+
+// Plan finder
+if($('#q1')){const o=$('#finderOut'),why={1000:'Your CV is strong and you have time, so direct distribution is enough.',3000:'A sharper ATS-ready CV and daily updates will move you fastest within a month.',5000:'You want speed or coaching, so interview preparation and a direct agency recommendation fit best.'};
+ const run=()=>{const a=$('#q1').value,b=$('#q2').value,c=$('#q3').value,t=(a==='a'||c==='y')?5000:(a==='c'&&b==='s')?1000:3000,T=TIERS[t];o.innerHTML=`<p><b>Best fit: Tier ${T.t} — ${T.n}</b> <span class="mono">${pkr(t)} · ${T.d}-day guarantee</span></p><p class="sub">${why[t]}</p><p><a class="btn" href="apply.html?tier=${t}">Choose ${T.n}</a></p>`};
+ ['q1','q2','q3'].forEach(i=>$('#'+i).onchange=run);run()}
 // Gen-Z touches: reveal on scroll + sticky mobile CTA
 if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('.card,section h2,.metrics,details').forEach(el=>{el.classList.add('rv');io.observe(el)})}
-if(!f){const c=document.createElement('a');c.className='btn sticky-cta';c.href='apply.html';c.textContent='Start my placement';document.body.appendChild(c)}
+if(!f){const c=document.createElement('a');c.className='btn sticky-cta';c.href='apply.html';c.textContent='Get my reference';document.body.appendChild(c)}
 })();
